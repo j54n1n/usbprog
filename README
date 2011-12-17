@@ -1,0 +1,40 @@
+usbprog is a developer kit for atmels avr controller
+
+	its supports:
+		- an ISP Interface (AVRISP mkII Klon)
+		- a JTAG Interface (JTAGICE mkII Klon)
+		- a seriell Interface (RS232 with an GNU/Linux kernelmodule to use it as /dev/ttyUSBx)
+
+
+
+Folders:
+
+
+avarice_corner
+++++++++++++++
+Server for the connection between GDB and the jtag interface of the target controller.
+
+	
+
+
+
+avrdude_corner
+++++++++++++++
+Here is a patched Version of avrdude for usbprog
+
+
+avrupdate
++++++++++
+
+board
++++++
+Schematic, Layout, Partlist
+
+firmware
+++++++++
+Actual firmware of usbprog
+
+ownflashtool
+++++++++++++
+I used this tool only for testing
+
