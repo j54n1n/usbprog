@@ -66,9 +66,9 @@ void simpleport_close(struct simpleport *simpleport)
 
 unsigned char simpleport_message(struct simpleport *simpleport, char *msg, int msglen, int answerlen)
 {
-  int res = usb_bulk_write(simpleport->usb_handle,3,msg,msglen,100);
+  int res = usb_bulk_write(simpleport->usb_handle,0x03,msg,msglen,100);
   if(answerlen>0 && res > 0) {
-    res =  usb_bulk_read(simpleport->usb_handle,2, msg, answerlen, 100);
+    res =  usb_bulk_read(simpleport->usb_handle,0x82, msg, answerlen, 100);
     if (res > 0)
       return (unsigned char)msg[1];
     else 
