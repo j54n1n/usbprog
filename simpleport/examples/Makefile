@@ -8,4 +8,4 @@ clean:
 	rm -f *.o *.pyc
 
 windows:
-	gcc example.c ../lib/simpleport.dll -I../lib/ -o example.exe
+	g++ example.c ../lib/simpleport.dll -I../lib/ -o example.exe

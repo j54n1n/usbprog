@@ -28,29 +28,33 @@
 #define PORT_GETPIN     0x05
 #define PORT_SETPINDIR  0x06
 
-#ifdef __cplusplus
-extern "C" {
+
+#define TRADITIONALDLL_EXPORTS
+#ifdef TRADITIONALDLL_EXPORTS
+   #define TRADITIONALDLL_API __declspec(dllexport)
+#else
+   #define TRADITIONALDLL_API __declspec(dllimport)
 #endif
 
-
-
-struct simpleport 
+#pragma pack(push, 8)
+struct simpleport
 {
-  struct usb_dev_handle* usb_handle;
+ //struct usb_dev_handle* usb_handle;
+ void * usb_handle;
 };
+#pragma pack(pop)
 
-struct simpleport* simpleport_open();
-void simpleport_close(struct simpleport *simpleport);
-unsigned char simpleport_message(struct simpleport *simpleport, char *msg, int msglen, int answerlen);
+extern "C" {
+TRADITIONALDLL_API void simpleport_open(struct simpleport *tmp);
+TRADITIONALDLL_API void simpleport_close(struct simpleport *simpleport);
+TRADITIONALDLL_API unsigned char simpleport_message(struct simpleport *simpleport, char *msg, int msglen, int answerlen);
 
 
-void simpleport_set_direction(struct simpleport *simpleport, unsigned char direction);
-void simpleport_set_port(struct simpleport *simpleport,unsigned char value, unsigned char mask);
-unsigned char simpleport_get_port(struct simpleport *simpleport);
-void simpleport_set_pin(struct simpleport *simpleport,int pin, int value);
-int simpleport_get_pin(struct simpleport *simpleport, int pin);
+TRADITIONALDLL_API void simpleport_set_direction(struct simpleport *simpleport, unsigned char direction);
+TRADITIONALDLL_API void simpleport_set_port(struct simpleport *simpleport,unsigned char value, unsigned char mask);
+TRADITIONALDLL_API unsigned char simpleport_get_port(struct simpleport *simpleport);
+TRADITIONALDLL_API void simpleport_set_pin(struct simpleport *simpleport,int pin, int value);
+TRADITIONALDLL_API void simpleport_set_pin_dir(struct simpleport *simpleport,int pin, int value);
+TRADITIONALDLL_API int simpleport_get_pin(struct simpleport *simpleport, int pin);
 
-#ifdef __cplusplus
 }
-#endif
-

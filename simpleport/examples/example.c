@@ -8,16 +8,16 @@
 
 int main()
 {
-  struct simpleport* sp_handle;
+  struct simpleport sp_handle;
 
   printf("libsimpleport Demo\n");
 
   /* open connection to simpleport */
-  sp_handle = simpleport_open();
+  simpleport_open(&sp_handle);
 	
-  if(sp_handle==0)
+  if(&sp_handle==0)
     printf("unable to open device\n");
-#if 1
+#if 0
 	int i;
 
   simpleport_set_direction(sp_handle,0xFF);

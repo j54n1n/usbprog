@@ -19,16 +19,16 @@
 
 #include <usb.h>
 
-struct simpleport* simpleport_open()
+void simpleport_open(struct simpleport *tmp)
 {
   struct usb_bus *busses;
   struct usb_dev_handle* usb_handle;
   struct usb_bus *bus;
   struct usb_device *dev;
 
-  struct simpleport * tmp;
+  //struct simpleport * tmp;
 
-  tmp = (struct simpleport*)malloc(sizeof(struct simpleport));
+  //tmp = (struct simpleport*)malloc(sizeof(struct simpleport));
 
 
   usb_init();
@@ -43,32 +43,34 @@ struct simpleport* simpleport_open()
     for (dev = bus->devices; dev; dev = dev->next){
       /* condition for sucessfully hit (too bad, I only check the vendor id)*/
       if (dev->descriptor.idVendor == VID && dev->descriptor.idProduct == PID) {
-	tmp->usb_handle = usb_open(dev);
+	tmp->usb_handle = (void*)usb_open(dev);
 
-	usb_set_configuration (tmp->usb_handle,dev->config[0].bConfigurationValue);
-	usb_claim_interface(tmp->usb_handle, 0);
-	usb_set_altinterface(tmp->usb_handle,0);
+	usb_set_configuration ((struct usb_dev_handle*)(tmp->usb_handle),dev->config[0].bConfigurationValue);
+	usb_claim_interface((struct usb_dev_handle*)(tmp->usb_handle), 0);
+	usb_set_altinterface((struct usb_dev_handle*)(tmp->usb_handle),0);
 
-	return tmp;
+	simpleport_set_pin_dir(tmp,11,1);
+	simpleport_set_pin(tmp,11,1);
+	//return tmp;
       }
     } 
   }
-  return 0;
+  //return 0;
 }
 
 
 void simpleport_close(struct simpleport *simpleport)
 {
-  usb_close(simpleport->usb_handle);
+  usb_close((struct usb_dev_handle*)(simpleport->usb_handle));
   free(simpleport);
 }
 
 
 unsigned char simpleport_message(struct simpleport *simpleport, char *msg, int msglen, int answerlen)
 {
-  int res = usb_bulk_write(simpleport->usb_handle,0x03,msg,msglen,100);
+  int res = usb_bulk_write((struct usb_dev_handle*)(simpleport->usb_handle),0x03,msg,msglen,100);
   if(answerlen>0 && res > 0) {
-    res =  usb_bulk_read(simpleport->usb_handle,0x82, msg, answerlen, 100);
+    res =  usb_bulk_read((struct usb_dev_handle*)(simpleport->usb_handle),0x82, msg, answerlen, 100);
     if (res > 0)
       return (unsigned char)msg[1];
     else 
