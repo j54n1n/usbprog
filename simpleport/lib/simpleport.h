@@ -45,7 +45,7 @@ struct simpleport
 #pragma pack(pop)
 
 extern "C" {
-TRADITIONALDLL_API void simpleport_open(struct simpleport *tmp);
+TRADITIONALDLL_API void __stdcall simpleport_open(struct simpleport *tmp);
 TRADITIONALDLL_API void simpleport_close(struct simpleport *simpleport);
 TRADITIONALDLL_API unsigned char simpleport_message(struct simpleport *simpleport, char *msg, int msglen, int answerlen);
 
