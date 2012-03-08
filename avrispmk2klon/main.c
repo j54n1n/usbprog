@@ -1419,8 +1419,8 @@ struct
         .bNumInterfaces = 1,
         .bConfigurationValue = 1,
         .iConfiguration = 0,
-        .bmAttributes = 0x80,   // bus powered
-        .MaxPower = 0x1a,
+        .bmAttributes = 0xC0,   // bus powered alt 0x80
+        .MaxPower = 0x32, // alt 0x1a
     },
     .Interface = 
     {
@@ -1473,23 +1473,24 @@ struct usb_wstring_descriptor PROGMEM LanguageString =
 
 struct usb_wstring_descriptor PROGMEM ManufacturerString = 
 {
-    .bLength = 2 * 8 + 2,
+    .bLength = 2 * 5 + 2,
     .bDescriptorType = STRING,
-    .wString = {'B', '.', 'S', 'a', 'u', 't', 'e', 'r'}
+    .wString = {'A', 'T', 'M', 'E', 'L'}
 };
 
 struct usb_wstring_descriptor PROGMEM ProductString = 
 {
-    .bLength = 2 * 16 + 2,
+    .bLength = 2 * 11 + 2,
     .bDescriptorType = STRING,
-    .wString = {'A', 'V', 'R', 'I', 'S', 'P', ' ', 'm', 'k', '2', ' ', 'C', 'l', 'o', 'n', 'e'}
+    .wString = {'A', 'V', 'R', 'I', 'S', 'P', ' ', 'm', 'k', 'I', 'I'}
 };
 
 struct usb_wstring_descriptor PROGMEM SerialNumber =
 {
-    .bLength = 2 * 15 + 2,
+    .bLength = 2 * 13 + 2,
     .bDescriptorType = STRING,
-    .wString = {'0', '0', '0', '0', 'A', '0', '0', '1', '2', '8', '2', '5', '6', 'X', '1', '2', '3'}
+    //.wString = {'0', '0', '0', '0', 'A', '0', '0', '1', '2', '8', '2', '5', '6', 'X', '1', '2', '3'}
+    .wString = {'0','0', '0', '2', '0', '0', '0', '9', '0', '6', '3', '8', 0}
 };
 
 struct usb_wstring_descriptor_tab PROGMEM avrispmk2klonStringTab =
