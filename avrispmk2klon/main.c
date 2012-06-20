@@ -1511,7 +1511,7 @@ void initTimer(void)
 {
     uint8_t sreg = SREG;
     cli();
-#if defined(__AVR_ATmega32__)
+#if defined(__AVR_ATmega32__) || defined(__AVR_ATmega16__) 
     TCCR0 = 0;
 
     ticker = 0;
@@ -1550,7 +1550,7 @@ uint32_t getTicker(void)
     return result;
 }
 
-#if defined( __AVR_ATmega32__)
+#if defined( __AVR_ATmega32__) ||defined( __AVR_ATmega16__)
 ISR(TIMER0_COMP_vect)
 #elif defined(__AVR_ATmega644__)
 ISR(TIMER0_COMPA_vect)

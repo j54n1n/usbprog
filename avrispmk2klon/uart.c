@@ -40,7 +40,7 @@
 #define USE_U2X 
 
 
-#if defined(__AVR_ATmega8__) || defined(__AVR_ATmega32__)
+#if defined(__AVR_ATmega8__) || defined(__AVR_ATmega32__) ||  defined(__AVR_ATmega16__)
 
 #define UART_UDR		UDR
 #define UART_UCSRA		UCSRA
@@ -147,7 +147,7 @@ void initUart(void)
 	/* set the baudrate */
 #ifdef USE_U2X
 	UART_UBRRH =
-#if defined(__AVR_ATmega8__) || defined(__AVR_ATmega32__)
+#if defined(__AVR_ATmega8__) || defined(__AVR_ATmega32__) ||  defined(__AVR_ATmega16__)
 				 (1<<URSEL) | 
 #endif
 	                          (((F_CPU + 4 * UART_BAUDRATE) / 8 / UART_BAUDRATE - 1) / 256);
@@ -155,7 +155,7 @@ void initUart(void)
 	UART_UCSRA = (1<<UART_U2X);
 #else
 	UART_UBRRH =
-#if defined(__AVR_ATmega8__) || defined(__AVR_ATmega32__) 
+#if defined(__AVR_ATmega8__) || defined(__AVR_ATmega32__)  ||  defined(__AVR_ATmega16__)
 				 (1<<URSEL) | 
 #endif
  							  (((F_CPU + 8 * UART_BAUDRATE) / 16 / UART_BAUDRATE - 1) / 256);

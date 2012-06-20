@@ -37,7 +37,7 @@ void USBNInitMC(void)
   // INT 0 fallende Flanke
   MCUCR &= ~(1 << ISC00);
   MCUCR |=  (1 << ISC01);
-#if defined(__AVR_ATmega32__)
+#if defined(__AVR_ATmega32__) ||  defined(__AVR_ATmega16__)
   GICR |= (1 << INT0);
 #elif (__AVR_ATmega644__)
   EIMSK |= (1<<INT0);

@@ -38,7 +38,7 @@
 
 
 # MCU name
-MCU = atmega32
+MCU = atmega16
 
 # Main Oscillator Frequency
 # This is only used to define F_OSC in all assembler and c-sources.
