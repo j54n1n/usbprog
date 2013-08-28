@@ -1,0 +1,25 @@
+Stückliste exportiert aus /home/sauterbe/SVN/pcbproduction/EPROO-SHOP/USBPROG3_3/usbprog_v3_3.sch am 28.08.13 06:01
+
+Qty Value      Device                Package                   Parts                               Description                MF                     MPN               OC_FARNELL TP_SIGNAL_NAME
+2              JP1E                  JP1                       JP1, JP2                            JUMPER                                                                                       
+2              PASSERMARKEN_FIDUCIAL PASSERMARKEN_FIDUCIAL     FID1, FID2                          SMD Passermarke                                                                              
+4   100nF      C-EUC0805             C0805                     C3, C6, C9, C13                     CAPACITOR, European symbol AVX                    08055C104KAT2A    499687                   
+1   10K        R-EU_R0805            R0805                     R1                                  RESISTOR, European symbol  VISHAY DRALORIC        CRCW080510K0FKEA  1469856                  
+1   10K        R-EU_R0805            R0805                     R2                                  RESISTOR, European symbol  VISHAY DRALORIC        CRCW0805100KFKTA  1652905                  
+1   1K5        R-EU_M0805            M0805                     R4                                  RESISTOR, European symbol  VISHAY DRALORIC        CRCW08051K50FKEA  1652940                  
+1   1M         R-EU_R0805            R0805                     R3                                  RESISTOR, European symbol  YAGEO (PHYCOMP)        RC0805FR-071ML    9237992                  
+2   2.2uF      C-EUC0805             C0805                     C4, C5                              CAPACITOR, European symbol KEMET                  C1206C105K4RACTU  1650888                  
+2   22pF       C-EUC0805             C0805                     C1, C2                              CAPACITOR, European symbol KEMET                  C0805C150J5GACTU  1414668                  
+1   24MHz      CRYSTALSMD            HC49UP                    Q1                                  Crystals                   TXC                    9C-24.000MAAJ-T   1842309                  
+8   270R       R-EU_R0805            R0805                     R7, R8, R9, R16, R19, R20, R21, R22 RESISTOR, European symbol  VISHAY DRALORIC        CRCW0805100RFKEA  1469862                  
+2   270R       R-EU_R0805            R0805                     R5, R6                              RESISTOR, European symbol  VISHAY DRALORIC        CRCW0805270RFKEA  1652970                  
+1   DNP        HEADER2X3             PINHEADER2X3_PINHEADER3X2 Y2                                                                                                      unknown                  
+1   DNP        HEADER2X5             CON-3M_PAK100/2500-10     Y1                                                                                                      unknown                  
+1   EPLOGO     EPLOGO                EPLOGOKUPFER              U$1                                                                                                                              
+1   GRUEN      LEDCHIPLED_0805       CHIPLED_0805              LED11                               LED                        DIALIGHT               5988170107F       1465996                  
+1   MEGA32-A   MEGA32-A              TQFP44                    IC1                                 MICROCONTROLLER            ATMEL                  ATMEGA32A-AU      1704563                  
+1   MINI-USB-B MINI-USB-B            MINI-USB-B                J1                                                                                                      unknown                  
+2   PTR1TP08R  PTR1TP08R             TP08R                     EXT, VCC                            TEST PIN                                                                                     
+1   PTR1TP15R  PTR1TP15R             TP15R                     RST                                 TEST PIN                                                                                     
+1   ROT        LEDCHIPLED_0805       CHIPLED_0805              LED5                                LED                        DIALIGHT               5988110107F       1465992                  
+1   USBN9604   USBN9604              SO28-3                    IC2                                                            NATIONAL SEMICONDUCTOR USBN9604-28M/NOPB 1564747                  
